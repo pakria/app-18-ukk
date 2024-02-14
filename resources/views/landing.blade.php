@@ -1,63 +1,52 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">About</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-
-          <button class="btn btn-primary d-flex" style="margin-right: 20px;" type="submit">Login</button>
-          <button class="btn btn-primary d-flex" type="submit">Register</button>
-        </form>
-      </div>
+@extends('partials.app')
+@section('konten')
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="left-text col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <h1>GBook<strong> Sigudang Ilmu</strong></h1>
+                        <p>Mari membaca buku karena membaca buku adalah gudang ilmu</p>
+                        <a href="/login" class="main-button-slider">Login</a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                        <img src="{{asset ('dist/assets/images/slider-icon.png')}}" class="rounded img-fluid d-block mx-auto"
+                            alt="First Vector Graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
     </div>
-  </nav>
-  <div class="container-fluid text-center text-white" style="margin-bottom:20px; background-color:rgb(216, 216, 216);">
-    <div class="row w-100 align-items-center">
-      <div class=" col-6">
-        <h1 style="color:black;">Welcome to Perpustakaan Digital</h1>
-      </div>
-      <div class="col-6 my-4"><img class="ms-5" src="{{ asset('gambar/Ellipse 1.png') }}" style="width: 450px;"
-          alt="">
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid text-left text-white" style="margin-bottom:20px; background-color:rgb(58, 58, 58);">
-    <div class="row w-100 align-items-center">
-      <div class=" col-6">
-        <h1 style="">About</h1>
-        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas a neque deserunt architecto provident
-          voluptatum. Veniam vitae illum fugiat qui.</h4>
-      </div>
-      <div class="col-6 my-4"><img class="ms-5" src="{{ asset('gambar/logow.webp') }}" style="width: 450px;"
-          alt="">
-      </div>
-    </div>
-  </div>
+    <!-- ***** Welcome Area End ***** -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
 
-</html>
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <img src="{{asset ('dist/assets/images/left-image.png')}}" class="rounded img-fluid d-block mx-auto" alt="App">
+                </div>
+                <div class="right-text col-lg-5 col-md-12 col-sm-12 mobile-top-fix">
+                    <div class="left-heading">
+                        <h5>Tentang Kami</h5>
+                    </div>
+                    <div class="left-text">
+                        <p>GBook merupakan sebuah web yang berfungsi untuk membantu para pelajar dalam meminjam buku.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+@endsection
