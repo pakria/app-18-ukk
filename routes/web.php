@@ -19,8 +19,15 @@ Route::get('/landing', function () {
     return view('landing');
 });
 Route::get('/dashboard', function () {
-    return view('layout.index');
+    return view('dashboard.dashboard');
+});
+Route::get('/table', function () {
+    return view('dashboard.table');
 });
 Route::get('/login', function () {
     return view('auth.login');
 });
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
