@@ -27,7 +27,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('layouts.sidebar')
+        @include('layout.sidebard')
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -35,7 +35,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                @include('layouts.navbar')
+                @include('layout.navbar')
 
                 @yield('konten')
             </div>

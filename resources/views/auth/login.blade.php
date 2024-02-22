@@ -41,20 +41,25 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form action="" class="user">
+                  <form action="/dologin" class="user">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                      <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
                         aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                      <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword"
                         placeholder="Password">
                     </div>
                     <div class="form-group">
                     </div>
-                    <a href="/dashboard" class="btn btn-primary btn-user btn-block">
+                    <button><a href="/table" class="btn btn-primary btn-user btn-block">
                       Login
                     </a>
+                </button>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div>
                     <hr>
                   </form>
                   <hr>
