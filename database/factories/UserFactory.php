@@ -2,9 +2,12 @@
 
 namespace Database\Factories;
 
+use Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+
+//use Illuminate\Database\Eloquent\Casts\Attribute;
 
 use function PHPSTORM_META\type;
 
@@ -44,14 +47,12 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
-
-    //public function Attribute() : Attribute
-    //{
-        //return new attribute([
-         //get : fn ($value)['user','admin'][$value]
-        //]);
-        //]
-    //}
-
-
 }
+
+   // protected function type() : Attribute
+//{
+     //   return new Attribute(
+         //   get : fn [$values]->["admin","user"][$values]
+       // );
+   // }
+//}

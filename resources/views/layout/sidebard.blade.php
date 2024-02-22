@@ -37,7 +37,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="/table">buku</a>
-                <a class="collapse-item" href="/kategori">kategoribuku</a>
+                <a class="collapse-item" href="/dashboard">kategoribuku</a>
             </div>
         </div>
     </li>
