@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
 use App\Http\Middleware;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +43,13 @@ Route::get('/register', function () {
 Route::post('/register', [AuthController::class, 'registerSave']);
 Route::post('/login', [AuthController::class, 'dologin']);
 
+Route::resource('products', ProductController::class);
+    
 
 
+//Route::resource('products', [ProductController::class])name->();
 
+//Route::resource('/dashboard',\App\Http\BukuController::class);
 
 
  //Route::middleware([AuthController::class])->group( function () {

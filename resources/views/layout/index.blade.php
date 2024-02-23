@@ -40,7 +40,7 @@
                 @yield('konten')
             </div>
 
-          
+
 
 
             <!-- End of Page Wrapper -->

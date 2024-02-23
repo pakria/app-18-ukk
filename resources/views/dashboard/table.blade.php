@@ -14,32 +14,89 @@
                <!-- Button trigger modal -->
                <div>
                 </div>
-                <a type="" href="{{ route('create') }}" class="btn btn-primary">Tambah Buku</a>
-                <form action="{{ route('create') }}" >
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Nama Kategori</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                        <tr>
-                            <th>pakri</th>
 
-                        </tr>
-                    </tbody>
-                        </table>
-                    </div>
-                </div>
-                </form>
 
             </div>
             <!-- /.container-fluid -->
 
         </div>
         <!-- End of Main Content -->
+
+            <div>
+            <button type="button" class="btn btn-primary">Tambah Buku</button>
+            </div>
+            <form action="">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nama Kategori</th>
+                                <th>Buku</th>
+                                <th>Riilis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    <tr>
+                        <th>pakri</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tbody>
+                    </table>
+                </div>
+            </div>
+            </form>
+
+
+
+
+       <!-- <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <h3></h3>
+                        <h5></h5>
+                        <hr>
+                    </div>
+                    <div class="card-border-0 shadow-sm rounded">
+                        <div class="card-body">
+                            <a href="" class="btn btn-md btn-succes mb-3 ">Tambah Kategori</a>
+                            <table class="table table-boarded">
+                                <thead>
+                                    <tr>
+                                        <th scope="">Nama</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                        <tr>
+                                            <td>td>
+                                            <td class="text-center">
+                                                <form action="" onsubmit="return confirm('Apakah Anda Yakin ?')" method="">
+                                                    <a href="" class="btn btn-sm btn-dark">Show</a>
+                                                    <a href="" class="btn btn-sm btn-dark">Edit</a>
+
+
+                                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+
+                                        <div class="alert alert-danger">
+                                            Data Belum Tersedia
+                                        </div>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    -->
+
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
