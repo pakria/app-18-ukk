@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ use App\Http\Middleware;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/landing', function () {
     return view('landing');
 });
@@ -39,6 +41,7 @@ Route::get('/register', function () {
 
 Route::post('/register', [AuthController::class, 'registerSave']);
 Route::post('/login', [AuthController::class, 'dologin']);
+
 
 
 

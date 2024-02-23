@@ -56,10 +56,6 @@
                     <button class="btn btn-primary btn-user btn-block" type="submit">
                       Login
                    </button>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                      </div>
                   <div class="text-center">
                     <a class="small" href="/register">Create an Account!</a>
                   </div>

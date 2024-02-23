@@ -108,6 +108,33 @@
         </div>
         <!-- End of Main Content -->
 
+        <!-- table -->
+        <div>
+        <button type="button" class="btn btn-primary">Tambah Buku</button>
+        </div>
+        <form action="">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nama Kategori</th>
+                            <th>Buku</th>
+                            <th>Riilis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                <tr>
+                    <th>pakri</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tbody>
+                </table>
+            </div>
+        </div>
+        </form>
+        <!-- End table -->
     </div>
     <!-- End of Content Wrapper -->
 @endsection

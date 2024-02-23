@@ -35,7 +35,7 @@ class AuthController extends Controller
        $flight->alamat = $request->alamat;
        $flight->password = $request->password;
        $flight->save();
-
+        
 
 
 return redirect('/login');
@@ -70,7 +70,7 @@ return redirect('/login');
                 return redirect()->intended('/dashboard');
             }
 
-            
+
 
             return back()->withErrors([
                 'email' => 'The provided credentials do not match our records.',

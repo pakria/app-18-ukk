@@ -22,7 +22,7 @@
   <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet" />
 </head>
 
-<body class="bg-gradient-primary" style="background:blue;">
+<body class="bg-gradient-primary" style="background:rgb(87, 87, 241);">
   <div class="container">
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
@@ -77,10 +77,11 @@
                     @enderror
                   </div>
                 </div>
-                <button><a href="/login" class="btn btn-primary btn-user btn-block" type="submit">
+                <div class="mt-2">
+                <button href="/login" class="btn btn-primary btn-user btn-block " type="submit">
                     Login
-                  </a>
                  </button>
+                 </div>
                 <div class="text-center">
                   <a class="small" href="/login">Already have an account? Login!</a>
                 </div>
