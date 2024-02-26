@@ -29,7 +29,7 @@
         <!-- Nested Row within Card Body -->
         <div class="row">
           <div class="col-lg-5 d-none d-lg-block bg-register-image">
-            <img src="{{ asset('assets/img/mesi.jpg') }}" alt="">
+            <img src="{{ asset('dist/assets/gambar/book.webp') }}" alt="">
           </div>
           <div class="col-lg-7">
             <div class="p-5">
@@ -55,9 +55,16 @@
                   @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <input type="alamat" name="alamat" class="form-control form-control-user @error('alamat')is-invalid @enderror"
+                    <input type="alamat" placeholder="alamat" name="alamat" class="form-control form-control-user @error('alamat')is-invalid @enderror"
                       id="alamat" />
                     @error('alamat')
+                      <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                  </div>
+                  <div class="form-group mb-3">
+                    <input type="telepon" placeholder="telepon" name="telepon" class="form-control form-control-user @error('telepon')is-invalid @enderror"
+                      id="teleponn" />
+                    @error('telepon')
                       <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                   </div>
@@ -79,7 +86,7 @@
                 </div>
                 <div class="mt-2">
                 <button href="/login" class="btn btn-primary btn-user btn-block " type="submit">
-                    Login
+                    Register
                  </button>
                  </div>
                 <div class="text-center">

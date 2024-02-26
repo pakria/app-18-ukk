@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="/dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -38,7 +38,8 @@
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="/dashboard">buku</a>
                 <a class="collapse-item" href="/table">kategori buku</a>
-                
+                <a class="collapse-item" href="{{ route('user.index') }}">user</a>
+
             </div>
         </div>
     </li>

@@ -1,13 +1,17 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
+use App\Http\Middleware;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Group;
-use App\Http\Middleware;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BerandaAdminController;
+use App\Http\Controllers\BerandaPetugasController;
+use App\Http\Controllers\BerandaPeminjamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +25,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Route::get('/landing', function () {
@@ -36,15 +40,9 @@ Route::get('/table', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
-Route::get('/register', function () {
-     return view('auth/register');
-});
-
-Route::post('/register', [AuthController::class, 'registerSave']);
-Route::post('/login', [AuthController::class, 'dologin']);
 
 Route::resource('products', ProductController::class);
-    
+
 
 
 //Route::resource('products', [ProductController::class])name->();
@@ -63,3 +61,25 @@ Route::resource('products', ProductController::class);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin')->middleware('auth', 'auth.admin')->group(function () {
+    Route::get('/', [BerandaAdminController::class, 'index'])->name('admin.beranda');
+    Route::resource('user', UserController::class);
+});
+
+Route::prefix('petugas')->middleware('auth', 'auth.petugas')->group(function () {
+    Route::get('/', [BerandaPetugasController::class, 'index'])->name('petugas.beranda');
+});
+
+Route::prefix('peminjam')->middleware('auth', 'auth.peminjam')->group(function () {
+    Route::get('/', [BerandaPeminjamController::class, 'index'])->name('peminjam.beranda');
+});
+
+Route::get('logout', function() {
+    Auth::logout();
+    return redirect()->route('login');
+});

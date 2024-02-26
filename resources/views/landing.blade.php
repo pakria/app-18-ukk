@@ -10,7 +10,7 @@
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                         <h1>GBook<strong> Sigudang Ilmu</strong></h1>
                         <p>Mari membaca buku karena membaca buku adalah gudang ilmu</p>
-                        <a href="/login" class="main-button-slider">Login</a>
+                        <a href="{{ route('login') }}" class="main-button-slider">Login</a>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"
                         data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">

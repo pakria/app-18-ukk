@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use Attribute;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-//use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 use function PHPSTORM_META\type;
 
@@ -41,18 +41,8 @@ class UserFactory extends Factory
     /**
      * Indicate that the model's email address should be unverified.
      */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
-    }
+  
 }
 
-   // protected function type() : Attribute
-//{
-     //   return new Attribute(
-         //   get : fn [$values]->["admin","user"][$values]
-       // );
-   // }
-//}
+
+

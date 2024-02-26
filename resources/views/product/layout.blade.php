@@ -6,7 +6,9 @@
 </head>
 <body>
 <div class="container" style="margin-top: 15px;">
+    @include('sweetalert::alert')
     @yield('content')
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

@@ -33,9 +33,10 @@ class AuthController extends Controller
        $flight->name = $request->name;
        $flight->email = $request->email;
        $flight->alamat = $request->alamat;
+       $flight->telepon= $request->telepon;
        $flight->password = $request->password;
        $flight->save();
-        
+
 
 
 return redirect('/login');
