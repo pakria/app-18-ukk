@@ -11,8 +11,8 @@
                 <!-- Page Heading -->
                 <h1 class="h3 mb-2 text-gray-800"> Data User</h1>
                 <!-- DataTales Example -->
-               <!-- Button trigger modal -->
-               <div>
+                <!-- Button trigger modal -->
+                <div>
                 </div>
 
 
@@ -21,48 +21,37 @@
 
         </div>
         <!-- End of Main Content -->
-
-
-
-
-
-
-       <!-- <div class="container mt-5">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col-md-12">
-                    <div>
-                        <h3></h3>
-                        <h5></h5>
-                        <hr>
-                    </div>
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
-                            <a href="" class="btn btn-md btn-succes mb-3 ">Tambah Kategori</a>
+                            <div class="d-flex justify-content-between">
+                                <h4>Table User</h4>
+                                <a href="" class="btn btn-md btn-primary mb-3">Add User</a>
+                            </div>
                             <table class="table table-boarded">
                                 <thead>
                                     <tr>
                                         <th scope="">Nama</th>
+                                        <th scope="">email</th>
+                                        <th scope="">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td>Pakri</td>
+                                        <td>3rXKU@example.com</td>
+                                        <td>
+                                            <form action="" onsubmit="return confirm('Apakah Anda Yakin ?')"
+                                                method="">
+                                                <a href="" class="btn btn-sm btn-dark">Edit</a>
 
-                                        <tr>
-                                            <td>td>
-                                            <td class="text-center">
-                                                <form action="" onsubmit="return confirm('Apakah Anda Yakin ?')" method="">
-                                                    <a href="" class="btn btn-sm btn-dark">Show</a>
-                                                    <a href="" class="btn btn-sm btn-dark">Edit</a>
 
-
-                                                    <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-
-                                        <div class="alert alert-danger">
-                                            Data Belum Tersedia
-                                        </div>
-
+                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -71,7 +60,6 @@
                 </div>
             </div>
         </div>
-    -->
 
 
         <!-- Footer -->
