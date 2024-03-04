@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('table_buku', function (Blueprint $table) {
-
-$table->bigIncrements('id_buku');
-$table->string('judul_buku', 40);
-$table->string('deskripsi', 100);
-$table->integer('kategori');
-$table->string('cover_img', 50);
-$table->timestamps();
+        Schema::create('buku', function (Blueprint $table) {
+        $table->id();
+        $table->string('judul', 40);
+        $table->string('penulis', 40);
+        $table->string('penerbit', 40);
+        $table->string('deskripsi', 100);
+        $table->enum('kategori', ['fiksi', 'nonfiksi']);
+        $table->string('cover', 50);
+        $table->timestamps();
      });
     }
 

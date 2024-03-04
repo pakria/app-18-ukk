@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BerandaAdminController;
 use App\Http\Controllers\BerandaPetugasController;
 use App\Http\Controllers\BerandaPeminjamController;
+use App\Http\Controllers\BukuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware('auth', 'auth.admin')->group(function () {
     Route::get('/', [BerandaAdminController::class, 'index'])->name('admin.beranda');
     Route::resource('user', UserController::class);
+    Route::resource('buku', BukuController::class);
 });
 
 Route::prefix('petugas')->middleware('auth', 'auth.petugas')->group(function () {

@@ -28,40 +28,48 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h4>Table User</h4>
-                                <a href="" class="btn btn-md btn-primary mb-3">Add User</a>
+                                <a href="{{ route('user.create') }}" class="btn btn-md btn-primary mb-3">Tambah User</a>
                             </div>
                             <table class="table table-boarded">
                                 <thead>
                                     <tr>
                                         <th scope="">Nama</th>
+                                        <th scope="">Alamat</th>
+                                        <th scope="">Telepon</th>
                                         <th scope="">email</th>
                                         <th scope="">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse ($user as $item)
                                     <tr>
-                                        <td>Pakri</td>
-                                        <td>3rXKU@example.com</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->alamat }}</td>
+                                        <td>{{ $item->telepon }}</td>
+                                        <td>{{ $item->email }}</td>
                                         <td>
-                                            <form action="" onsubmit="return confirm('Apakah Anda Yakin ?')"
-                                                method="">
-                                                <a href="" class="btn btn-sm btn-dark">Edit</a>
-
-
-                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                            <form action="{{ route('user.destroy', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-dark">Edit</a>
+                                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                             </form>
-                                        </td>
-                                    </tr>
+                                        </td>          
+                                    </tr> 
+                                    @empty
+                                        <tr>
+                                            <td colspan="5">Data Tidak Tersedia</td>
+                                        </tr>
+                                    @endforelse
+                                    
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
