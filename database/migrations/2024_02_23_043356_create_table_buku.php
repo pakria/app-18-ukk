@@ -16,6 +16,7 @@ return new class extends Migration
         $table->string('judul', 40);
         $table->string('penulis', 40);
         $table->string('penerbit', 40);
+        $table->date('thn_terbit', 40);
         $table->string('deskripsi', 100);
         $table->enum('kategori', ['fiksi', 'nonfiksi']);
         $table->string('cover', 50);
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_buku');
+        Schema::dropIfExists('buku');
     }
 };

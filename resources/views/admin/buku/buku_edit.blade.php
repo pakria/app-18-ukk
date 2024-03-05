@@ -23,19 +23,19 @@
                 <div class="col-md-12">
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
-                            <form action="{{ route('buku.edit')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('buku.update', $buku->id)}}" method="post" enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="form-group">
                                     <label for="judul">judul</label>
-                                    <input type="text" class="form-control" name="judul" id="judul" aria-describedby="emailHelp">
+                                    <input type="text" class="form-control" value="{{ old('judul', $buku->judul) }}" name="judul" id="judul" aria-describedby="emailHelp">
                                     @error('judul')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="penulis">penulis</label>
-                                    <input type="text" class="form-control" name="penulis" id="penulis" aria-describedby="emailHelp">
-                        
+                                    <input type="text" class="form-control" value="{{ old('penulis', $buku->penulis) }}" name="penulis" id="penulis" aria-describedby="emailHelp">
                                     @error('penulis')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -43,21 +43,28 @@
 
                                 <div class="form-group">
                                     <label for="penerbit">penerbit</label>
-                                    <input type="text" class="form-control" name="penerbit" id="penerbit" aria-describedby="emailHelp">
+                                    <input type="text" class="form-control" value="{{ old('penerbit', $buku->penerbit) }}" name="penerbit" id="penerbit" aria-describedby="emailHelp">
                                     @error('penerbit')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="thn_terbit">thn_terbit</label>
+                                    <input type="date" class="form-control" value="{{ old('thn_terbit', $buku->thn_terbit) }}" name="thn_terbit" id="thn_terbit" aria-describedby="emailHelp">
+                                    @error('thn_terbit')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="deskripsi">deskripsi</label>
-                                    <input type="text" class="form-control" name="deskripsi" id="deskripsi" aria-describedby="emailHelp">
+                                    <input type="text" class="form-control" value="{{ old('deskripsi', $buku->deskripsi) }}" name="deskripsi" id="deskripsi" aria-describedby="emailHelp">
                                     @error('deskripsi')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="kategori">kategori</label>
-                                    <select class="custom-select" name="kategori" id="Kategori">
+                                    <select class="custom-select" value="{{ old('kategori', $buku->kategori) }}" name="kategori" id="Kategori">
                                         <option selected>Pilih Kategori</option>
                                         <option value="fiksi">Fiksi</option>
                                         <option value="nonfiksi">Non Fiksi</option>
@@ -68,7 +75,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="cover">cover</label>
-                                    <input type="file" class="form-control" name="cover" id="cover" aria-describedby="emailHelp">
+                                    <input type="file" class="form-control" value="{{ old('cover', $buku->cover) }}" name="cover" id="cover" aria-describedby="emailHelp">
                                     @error('cover')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror

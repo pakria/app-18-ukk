@@ -49,6 +49,13 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label for="thn_terbit">thn_terbit</label>
+                                    <input type="date" class="form-control" name="thn_terbit" id="thn_terbit" aria-describedby="emailHelp">
+                                    @error('thn_terbit')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="deskripsi">deskripsi</label>
                                     <input type="text" class="form-control" name="deskripsi" id="deskripsi" aria-describedby="emailHelp">
                                     @error('deskripsi')

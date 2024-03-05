@@ -37,7 +37,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Login Screensh:</h6>
                 <a class="collapse-item" href="{{ route('buku.index') }}">buku</a>
-                <a class="collapse-item" href="/table">kategori buku</a>
+                <a class="collapse-item" href="{{ route('kategori.index') }}">kategori buku</a>
                 <a class="collapse-item" href="{{ route('user.index') }}">user</a>
 
             </div>
