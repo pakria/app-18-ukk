@@ -23,7 +23,7 @@
                 <div class="col-md-12">
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
-                            <form action="{{ route('buku.update', $buku->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('buku-admin.update', $buku->id)}}" method="POST" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group">
@@ -66,8 +66,8 @@
                                     <label for="kategori">kategori</label>
                                     <select class="custom-select" value="{{ old('kategori', $buku->kategori) }}" name="kategori" id="Kategori">
                                         <option selected>Pilih Kategori</option>
-                                        <option value="fiksi">Fiksi</option>
-                                        <option value="nonfiksi">Non Fiksi</option>
+                                        <option value="fiksi" {{ $buku->kategori == 'fiksi' ? 'selected' : '' }}>Fiksi</option>
+                                        <option value="nonfiksi" {{ $buku->kategori == 'nonfiksi' ? 'selected' : '' }}>Non Fiksi</option>
                                     </select>
                                     @error('kategori')
                                     <span class="text-danger">{{ $message }}</span>
@@ -80,7 +80,13 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                               
+                                <div class="form-group">
+                                    <label for="stok">stok</label>
+                                    <input type="number" class="form-control" value="{{ old('stok', $buku->stok) }}" name="stok" id="stok" aria-describedby="emailHelp">
+                                    @error('stok')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Kirim</button>
                                 </div>

@@ -9,7 +9,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800"> Data User</h1>
+                <h1 class="h3 mb-2 text-gray-800"> Data Peminjam</h1>
                 <!-- DataTales Example -->
                 <!-- Button trigger modal -->
                 <div>
@@ -26,34 +26,39 @@
                 <div class="col-md-12">
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <h4>Table User</h4>
-                                <a href="{{ route('kategori.create') }}" class="btn btn-md btn-primary mb-3">Tambah Kategori</a>
-                            </div>
                             <table class="table table-boarded">
                                 <thead>
                                     <tr>
-                                        <th scope="">Nama</th>
+                                        <th scope="">no</th>
+                                        <th scope="">judul</th>
+                                        <th scope="">penulis</th>
+                                        <th scope="">penerbit</th>
+                                        <th scope="">thn_terbit</th>
+                                        <th scope="">deskripsi</th>
+                                        <th scope="">kategori</th>
+                                        <th scope="">cover</th>
                                         <th scope="">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($model as $item)
+                                    @forelse ($buku as $item)
                                     <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->judul }}</td>
+                                        <td>{{ $item->penulis }}</td>
+                                        <td>{{ $item->penerbit }}</td>
+                                        <td>{{ $item->thn_terbit }}</td>
+                                        <td>{{ $item->deskripsi }}</td>
                                         <td>{{ $item->kategori }}</td>
+                                        <td><img src="{{ asset('storage/buku/'.$item->cover) }}" alt="" style="width: 100px; height:100px"></td>
                                         <td>
-                                            <form action="{{ route('user.destroy', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')"
-                                            method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-dark">Edit</a>
-                                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                            </form>
+                                            <a href="{{ route('buku.show', $item->id) }}" class="btn btn-sm btn-dark">Detail</a>
+                                            <a href="{{ route('user.pinjam.create', $item->id) }}" class="btn btn-sm btn-primary ">Pinjam</a>
                                         </td>          
                                     </tr> 
                                     @empty
                                         <tr>
-                                            <td colspan="5">Data Tidak Tersedia</td>
+                                            <td colspan="9">Data Tidak Tersedia</td>
                                         </tr>
                                     @endforelse
                                     

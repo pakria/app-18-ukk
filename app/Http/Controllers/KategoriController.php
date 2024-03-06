@@ -18,7 +18,7 @@ class KategoriController extends Controller
         } else {
             $model = Model::all();
         }
-        return view('admin.kategori_index')->with('model', $model);
+        return view('kategori.kategori_index')->with('model', $model);
     }
 
     /**

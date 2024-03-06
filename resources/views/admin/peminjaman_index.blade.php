@@ -9,7 +9,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800"> Data User</h1>
+                <h1 class="h3 mb-2 text-gray-800"> Data Peminjam</h1>
                 <!-- DataTales Example -->
                 <!-- Button trigger modal -->
                 <div>
@@ -27,33 +27,36 @@
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
-                                <h4>Table User</h4>
-                                <a href="{{ route('kategori.create') }}" class="btn btn-md btn-primary mb-3">Tambah Kategori</a>
+                                <h4>Table Peminjaman</h4>
                             </div>
                             <table class="table table-boarded">
                                 <thead>
                                     <tr>
-                                        <th scope="">Nama</th>
-                                        <th scope="">Aksi</th>
+                                        <th scope="">no</th>
+                                        <th scope="">user_id</th>
+                                        <th scope="">buku_id</th>
+                                        <th scope="">jumlah</th>
+                                        <th scope="">status</th>
+                                        <th scope="">aksi</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($model as $item)
+                                    @forelse ($peminjaman as $item)
                                     <tr>
-                                        <td>{{ $item->kategori }}</td>
-                                        <td>
-                                            <form action="{{ route('user.destroy', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')"
-                                            method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <a href="{{ route('user.edit', $item->id) }}" class="btn btn-sm btn-dark">Edit</a>
-                                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                            </form>
-                                        </td>          
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->user_id }}</td>
+                                        <td>{{ $item->buku_id }}</td>
+                                        <td>{{ $item->jumlah }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>                                     
+                                            <a href="{{ route('peminjaman.show', $item->id) }}" class="btn btn-sm btn-dark">Detail</a>                                         
+                                        </td>
+                                    
                                     </tr> 
                                     @empty
                                         <tr>
-                                            <td colspan="5">Data Tidak Tersedia</td>
+                                            <td colspan="9">Data Tidak Tersedia</td>
                                         </tr>
                                     @endforelse
                                     

@@ -41,7 +41,7 @@ class BukuController extends Controller
             'deskripsi' => 'required',
             'cover'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'kategori'  => 'required|in:fiksi,nonfiksi',
-            
+            'stok'      => 'required|numeric'
         ]);
         $cover = $request->file('cover');
         $cover->storeAs('public/buku', $cover->hashName());
@@ -54,8 +54,9 @@ class BukuController extends Controller
             'thn_terbit'  => $request->get('thn_terbit'),
             'deskripsi' => $request->get('deskripsi'),
             'kategori'  => $request->get('kategori'),
+            'stok'  => $request->get('stok'),
         ]);
-        return redirect()->route('buku.index', $model);
+        return redirect()->route('buku-admin.index', $model);
     }
 
     /**
@@ -72,17 +73,15 @@ class BukuController extends Controller
     public function edit(string $id)
     {
         $buku = Buku::findOrFail($id);
-        $kategori = Kategori::all();
         return view('admin.buku.buku_edit',[
-            'buku' =>$buku,
-            'kategori' => $kategori
+            'buku' => $buku
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Buku $buku)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'judul'     => 'required',
@@ -91,10 +90,10 @@ class BukuController extends Controller
             'thn_terbit' => 'required',
             'deskripsi' => 'required',
             'cover'     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'kategori'  => 'required|array',  
-          
-        ]);
-
+            'kategori'  => 'required',  
+            'stok'      => 'required|numeric'
+        ]); 
+        $buku = Buku::where('id', $id)->first();
         //check if image is uploaded
         if ($request->hasFile('cover')) {
 
@@ -108,29 +107,29 @@ class BukuController extends Controller
             //update post with new image
             $buku->update([
                 'cover'     => $cover->hashName(),
-                'judul'     => $request->get('judul'),
-                'penulis'   => $request->get('penulis'),
-                'penerbit'  => $request->get('penerbit'),
-                'thn_terbit' => $request->get('thn_terbit'),
-                'deskripsi' => $request->get('deskripsi'),
-                
+                'judul'     => $request->judul,
+                'penulis'   => $request->penulis,
+                'penerbit'  => $request->penerbit,
+                'thn_terbit' => $request->thn_terbit,
+                'deskripsi' => $request->deskrpsi,
+                'kategori' => $request->kategori,
+                'stok' => $request->stok
             ]);
-            $buku->kategori()->sync($request->input('kategori'));
 
         } else {
-
             //update post without image
             $buku->update([
-                'judul'     => $request->get('judul'),
-                'penulis'   => $request->get('penulis'),
-                'penerbit'  => $request->get('penerbit'),
-                'thn_terbit' => $request->get('thn_terbit'),
-                'deskripsi' => $request->get('deskripsi'),
-            ]);
-            $buku->kategori()->sync($request->input('kategori'));
+                'judul'     => $request->judul,
+                'penulis'   => $request->penulis,
+                'penerbit'  => $request->penerbit,
+                'thn_terbit' => $request->thn_terbit,
+                'deskripsi' => $request->deskripsi,
+                'kategori' => $request->kategori,
+                'stok' => $request->stok
+            ]);            
         }
         //redirect to index
-        return redirect()->route('buku.index');
+        return redirect()->route('buku-admin.index');
     }
 
     /**
@@ -138,7 +137,8 @@ class BukuController extends Controller
      */
     public function destroy(string $id)
     {
-                
-        
+        $buku = Buku::findorfail($id);
+        $buku->delete();
+        return redirect()->route('buku-admin.index');
     }
 }

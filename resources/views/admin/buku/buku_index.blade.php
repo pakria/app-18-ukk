@@ -9,7 +9,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800"> Data User</h1>
+                <h1 class="h3 mb-2 text-gray-800">Buku</h1>
                 <!-- DataTales Example -->
                 <!-- Button trigger modal -->
                 <div>
@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <h4>Table Buku</h4>
-                                <a href="{{ route('buku.create') }}" class="btn btn-md btn-primary mb-3">Tambah Buku</a>
+                                <a href="{{ route('buku-admin.create') }}" class="btn btn-md btn-primary mb-3">Tambah Buku</a>
                             </div>
                             <table class="table table-boarded">
                                 <thead>
@@ -54,13 +54,13 @@
                                         <td>{{ $item->thn_terbit }}</td>
                                         <td>{{ $item->deskripsi }}</td>
                                         <td>{{ $item->kategori }}</td>
-                                        <td><img src="{{ asset('storage/pubic/buku/'.$item->cover) }}" alt=""></td>
+                                        <td><img src="{{ asset('storage/buku/'.$item->cover) }}" alt="" style="width: 100px; height:100px"></td>
                                         <td>
-                                            <form action="{{ route('buku.destroy', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')"
+                                            <form action="{{ route('buku-admin.destroy', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{ route('buku.edit', $item->id) }}" class="btn btn-sm btn-dark">Edit</a>
+                                            <a href="{{ route('buku-admin.edit', $item->id) }}" class="btn btn-sm btn-dark">Edit</a>
                                             <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                                             </form>
                                         </td>          

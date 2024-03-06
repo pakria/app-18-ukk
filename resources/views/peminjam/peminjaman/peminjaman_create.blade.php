@@ -23,30 +23,28 @@
                 <div class="col-md-12">
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
-                            <form action="{{ route('kategori.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('user.pinjam.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                <input type="text" name="user_id" value="{{ $user->id }}" hidden>
+                                <input type="text" name="buku_id" value="{{ $buku->id }}" hidden>
                                 <div class="form-group">
-                                    <label for="nm_kategori">nama kategori</label>
-                                    <input type="text" class="form-control" name="nm_kategori" id="nm_kategori">
-                                    @error('nm_kategori')
+                                    <label for="jumlah">Judul Buku</label>
+                                    <label for=""> {{ $buku->judul }}</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jumlah">jumlah</label>
+                                    <input type="number" class="form-control" name="jumlah" id="jumlah" aria-describedby="emailHelp">
+                                    @error('jumlah')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="deskripsi">deskripsi</label>
-                                    <input type="text" class="form-control" name="deskripsi" id="deskripsi" aria-describedby="emailHelp">
-                                    @error('deskripsi')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="kategori">kategori</label>
-                                    <select class="custom-select" name="kategori" id="Kategori">
-                                        <option selected>Pilih Kategori</option>
-                                        <option value="fiksi">Fiksi</option>
-                                        <option value="nonfiksi">Non Fiksi</option>
+                                    <label for="status" hidden>status</label>
+                                    <select class="custom-select" name="status" id="status" hidden>
+                                        <option selected>Pilih status</option>
+                                        <option value="dipinjam" selected>di pinjam</option>
                                     </select>
-                                    @error('kategori')
+                                    @error('status')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

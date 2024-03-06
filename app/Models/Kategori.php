@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-    protected $table = 'table_kategori';
+    protected $table = 'kategori';
     protected $fillable = ['nm_kategori'];
 }

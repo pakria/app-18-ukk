@@ -36,10 +36,14 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Login Screensh:</h6>
-                <a class="collapse-item" href="{{ route('buku.index') }}">buku</a>
-                <a class="collapse-item" href="{{ route('kategori.index') }}">kategori buku</a>
+                @if (Auth::user()->role == 'admin')    
+                <a class="collapse-item" href="{{ route('buku-admin.index') }}">buku</a>
                 <a class="collapse-item" href="{{ route('user.index') }}">user</a>
-
+                <a class="collapse-item" href="{{ route('peminjaman.index') }}">peminjaman</a>
+                @endif
+                @if (Auth::user()->role == 'peminjam')    
+                <a class="collapse-item" href="{{ route('buku.index') }}">buku</a>
+                @endif
             </div>
         </div>
     </li>

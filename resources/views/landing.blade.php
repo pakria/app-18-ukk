@@ -51,32 +51,18 @@
      <section class="section" id="services">
         <div class="container">
             <div class="row">
-                <div class="owl-carousel owl-theme">
-                    <div class="item service-item">
-                        <div class="card" style="height: 100%;">
-                            <i><img src="{{asset ('dist/assets/images/download(2).png')}}" alt="buku"></i>
+                @foreach ($buku as $item)    
+                    <div class="owl-carousel owl-theme">
+                        <div class="item service-item">
+                            <div class="card" style="height: 100%;">
+                                <i><img src="{{ asset('storage/buku/' . $item->cover) }}" alt="buku"></i>
+                            </div>
+                            <h5 class="service-title">{{ $item->judul }}</h5>
+                            <p>{{ $item->deskripsi }}</p>
+                            <a href="#" class="main-button">Read More</a>
                         </div>
-                        <h5 class="service-title">Bumi</h5>
-                        <p>Aenean vulputate massa sed neque consectetur, ac fringilla quam aliquet. Sed a enim nec eros tempor cursus at id libero.</p>
-                        <a href="#" class="main-button">Read More</a>
                     </div>
-                    <div class="item service-item">
-                        <div class="card" style="height: 100%;">
-                            <i><img src="{{asset ('dist/assets/images/cup.png')}}" alt="buku"></i>
-                        </div>
-                        <h5 class="service-title">Harry Potter</h5>
-                        <p>Pellentesque vitae urna ut nisi viverra tristique quis at dolor. In non sodales dolor, id egestas quam. Aliquam erat volutpat. </p>
-                        <a href="#" class="main-button">Discover More</a>
-                    </div>
-                    <div class="item service-item">
-                        <div class="card" style="height: 100%;">
-                            <i><img src="{{asset('dist/assets/images/pop.png')}}" alt="buku"></i>
-                        </div>
-                        <h5 class="service-title">One piece</h5>
-                        <p>Quisque finibus libero augue, in ultrices quam dictum id. Aliquam quis tellus sit amet urna tincidunt bibendum.</p>
-                        <a href="#" class="main-button">More Detail</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
