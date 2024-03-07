@@ -41,8 +41,12 @@
                 <a class="collapse-item" href="{{ route('user.index') }}">user</a>
                 <a class="collapse-item" href="{{ route('peminjaman.index') }}">peminjaman</a>
                 @endif
+                @if (Auth::user()->role == 'petugas')
+                    <a class="collapse-item" href="{{ route('data-peminjaman.index') }}">Peminjaman</a>
+                @endif
                 @if (Auth::user()->role == 'peminjam')    
                 <a class="collapse-item" href="{{ route('buku.index') }}">buku</a>
+                <a class="collapse-item" href="{{ route('user.pinjam.index') }}">peminjaman</a>
                 @endif
             </div>
         </div>

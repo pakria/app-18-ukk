@@ -20,24 +20,35 @@
 
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="card-border-0 shadow-sm rounded">
+                        <div class="card-body">
+                            <h4>Cover Buku</h4>
+                            <div class="form-group mb-3 d-flex justify-content-center">
+                                <img src="{{ asset('storage/buku/'.$peminjaman->buku->cover) }}" alt="" style="width: 250px; height:300px">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
                                 
                                 <div class="form-group">
-                                    <label for="judul">user_id</label>
-                                    <label for="judul">{{ $peminjaman->user_id }}</label>
+                                    <label for="judul">Nama Peminjam :</label>
+                                    <label for="judul">{{ $peminjaman->user->name }}</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="judul">buku_id</label>
-                                    <label for="judul">{{ $peminjaman->buku_id }}</label>
+                                    <label for="judul">Judul Buku :</label>
+                                    <label for="judul">{{ $peminjaman->buku->judul }}</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="judul">jumlah</label>
+                                    <label for="judul">jumlah :</label>
                                     <label for="judul">{{ $peminjaman->jumlah }}</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="judul">status</label>
+                                    <label for="judul">status :</label>
                                     <label for="judul">{{ $peminjaman->status }}</label>
                                 </div>
                                 <div class="form-group">

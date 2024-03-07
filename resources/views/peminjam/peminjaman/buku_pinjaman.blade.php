@@ -9,7 +9,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800"> Data Peminjam</h1>
+                <h1 class="h3 mb-2 text-gray-800">Buku yang Dipinjam</h1>
                 <!-- DataTales Example -->
                 <!-- Button trigger modal -->
                 <div>
@@ -30,31 +30,24 @@
                                 <thead>
                                     <tr>
                                         <th scope="">no</th>
-                                        <th scope="">judul</th>
-                                        <th scope="">penulis</th>
-                                        <th scope="">penerbit</th>
-                                        <th scope="">Tahun Terbit</th>
-                                        <th scope="">deskripsi</th>
-                                        <th scope="">kategori</th>
                                         <th scope="">cover</th>
-                                        <th scope="">Aksi</th>
+                                        <th scope="">Judul</th>
+                                        <th scope="">Tanggal Pinjam</th>
+                                        <th scope="">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($buku as $item)
+                                    @forelse ($peminjaman as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->judul }}</td>
-                                        <td>{{ $item->penulis }}</td>
-                                        <td>{{ $item->penerbit }}</td>
-                                        <td>{{ $item->thn_terbit}}</td>
-                                        <td>{{ $item->deskripsi }}</td>
-                                        <td>{{ $item->kategori }}</td>
-                                        <td><img src="{{ asset('storage/buku/'.$item->cover) }}" alt="" style="width: 100px; height:100px"></td>
-                                        <td>
-                                            <a href="{{ route('buku.show', $item->id) }}" class="btn btn-sm btn-dark">Detail</a>
-                                            <a href="{{ route('user.pinjam.create', $item->id) }}" class="btn btn-sm btn-primary ">Pinjam</a>
-                                        </td>          
+                                        <td><img src="{{ asset('storage/buku/'.$item->buku->cover) }}" alt="" style="width: 100px; height:100px"></td>
+                                        <td>{{ $item->buku->judul }}</td>
+                                        <td>{{ $item->created_at->format('d M Y') }}</td>
+                                        @if ($item->status == 'dipinjam')
+                                        <td><span class="badge badge-success">{{ $item->status }}</span></td>        
+                                        @else
+                                        <td><span class="badge badge-danger">{{ $item->status }}</span></td>                  
+                                        @endif
                                     </tr> 
                                     @empty
                                         <tr>

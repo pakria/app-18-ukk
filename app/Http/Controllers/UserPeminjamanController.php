@@ -16,8 +16,31 @@ class UserPeminjamanController extends Controller
      */
     public function index()
     {
-        
+        $userId = Auth::id();
+        $peminjaman = Peminjaman::with('user', 'buku')->where('user_id', $userId)->get();
+        return view('peminjam.peminjaman.buku_pinjaman', compact('peminjaman'));
+
+
     }
+    public function dataPinjam()
+    {
+        $peminjaman = Peminjaman::with('user', 'buku')->where('status', 'dipinjam')->get();
+        return view('peminjam.peminjaman.data-pinjaman', compact('peminjaman'));
+    }
+    public function kembali(Request $request, $id)
+    {
+        $pinjam = Peminjaman::findOrFail($id);
+        $pinjam->status = 'Dikembalikan';
+        $pinjam->save();
+
+        $buku = $pinjam->buku;
+        $buku->stok++;
+        $buku->save();
+
+        return redirect()->route('data-peminjaman.index');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

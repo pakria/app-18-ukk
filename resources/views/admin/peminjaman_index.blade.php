@@ -33,9 +33,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="">no</th>
-                                        <th scope="">user_id</th>
-                                        <th scope="">buku_id</th>
+                                        <th scope="">Nama Peminjam</th>
+                                        <th scope="">Judul Buku</th>
                                         <th scope="">jumlah</th>
+                                        <th scope="">Cover</th>
                                         <th scope="">status</th>
                                         <th scope="">aksi</th>
                                         
@@ -45,9 +46,10 @@
                                     @forelse ($peminjaman as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->user_id }}</td>
-                                        <td>{{ $item->buku_id }}</td>
+                                        <td>{{ $item->user->name }}</td>
+                                        <td>{{ $item->buku->judul }}</td>
                                         <td>{{ $item->jumlah }}</td>
+                                        <td><img src="{{ asset('storage/buku/'.$item->buku->cover) }}" alt="" style="width: 100px; height:100px"></td>
                                         <td>{{ $item->status }}</td>
                                         <td>                                     
                                             <a href="{{ route('peminjaman.show', $item->id) }}" class="btn btn-sm btn-dark">Detail</a>                                         

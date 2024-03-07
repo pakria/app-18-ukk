@@ -14,7 +14,7 @@ class AdminPeminjamanController extends Controller
      */
     public function index()
     {
-        $peminjaman = Peminjaman::all();
+        $peminjaman = Peminjaman::with('user', 'buku')->get();
 
         return view('admin.peminjaman_index', compact('peminjaman'));
     }
@@ -41,7 +41,7 @@ class AdminPeminjamanController extends Controller
     public function show(string $id)
     {
         //get posy by ID
-        $peminjaman = Peminjaman::findOrFail($id);
+        $peminjaman = Peminjaman::with('user', 'buku')->findOrFail($id);
 
         return view('admin.peminjaman_show', compact('peminjaman'));
     }

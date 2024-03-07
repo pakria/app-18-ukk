@@ -26,35 +26,39 @@
                 <div class="col-md-12">
                     <div class="card-border-0 shadow-sm rounded">
                         <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h4>Table Peminjaman</h4>
+                            </div>
                             <table class="table table-boarded">
                                 <thead>
                                     <tr>
                                         <th scope="">no</th>
-                                        <th scope="">judul</th>
-                                        <th scope="">penulis</th>
-                                        <th scope="">penerbit</th>
-                                        <th scope="">Tahun Terbit</th>
-                                        <th scope="">deskripsi</th>
-                                        <th scope="">kategori</th>
-                                        <th scope="">cover</th>
-                                        <th scope="">Aksi</th>
+                                        <th scope="">Nama Peminjam</th>
+                                        <th scope="">Judul Buku</th>
+                                        <th scope="">jumlah</th>
+                                        <th scope="">Cover</th>
+                                        <th scope="">status</th>
+                                        <th scope="">aksi</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($buku as $item)
+                                    @forelse ($peminjaman as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->judul }}</td>
-                                        <td>{{ $item->penulis }}</td>
-                                        <td>{{ $item->penerbit }}</td>
-                                        <td>{{ $item->thn_terbit}}</td>
-                                        <td>{{ $item->deskripsi }}</td>
-                                        <td>{{ $item->kategori }}</td>
-                                        <td><img src="{{ asset('storage/buku/'.$item->cover) }}" alt="" style="width: 100px; height:100px"></td>
-                                        <td>
-                                            <a href="{{ route('buku.show', $item->id) }}" class="btn btn-sm btn-dark">Detail</a>
-                                            <a href="{{ route('user.pinjam.create', $item->id) }}" class="btn btn-sm btn-primary ">Pinjam</a>
-                                        </td>          
+                                        <td>{{ $item->user->name }}</td>
+                                        <td>{{ $item->buku->judul }}</td>
+                                        <td>{{ $item->jumlah }}</td>
+                                        <td><img src="{{ asset('storage/buku/'.$item->buku->cover) }}" alt="" style="width: 100px; height:100px"></td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>                                     
+                                            <a href="{{ route('peminjaman.show', $item->id) }}" class="btn btn-sm btn-dark">Detail</a>                                         
+                                            <form action="{{ route('peminjaman.kembali', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm btn-danger">Kembalikan</button>
+                                            </form>                                         
+                                        </td>
+                                    
                                     </tr> 
                                     @empty
                                         <tr>

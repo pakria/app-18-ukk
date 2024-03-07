@@ -85,6 +85,10 @@ Route::prefix('admin')->middleware('auth', 'auth.admin')->group(function () {
 
 Route::prefix('petugas')->middleware('auth', 'auth.petugas')->group(function () {
     Route::get('/', [BerandaPetugasController::class, 'index'])->name('petugas.beranda');
+    Route::get('data-peminjaman', [UserPeminjamanController::class, 'dataPinjam'])->name('data-peminjaman.index');
+    Route::post('peminjaman/{id}/kembalikan', [UserPeminjamanController::class, 'kembali'])->name('peminjaman.kembali');
+
+
 });
 
 Route::prefix('peminjam')->middleware('auth', 'auth.peminjam')->group(function () {
@@ -92,6 +96,7 @@ Route::prefix('peminjam')->middleware('auth', 'auth.peminjam')->group(function (
     Route::resource('buku', UserBukuController::class);
     Route::get('peminjaman-form/{id}/', [UserPeminjamanController::class, 'create'])->name('user.pinjam.create');
     Route::post('peminjaman-form/', [UserPeminjamanController::class, 'store'])->name('user.pinjam.store');
+    Route::get('peminjaman', [UserPeminjamanController::class, 'index'])->name('user.pinjam.index');
 });
 
 Route::prefix('/')->group(function () {

@@ -128,6 +128,7 @@ class BukuController extends Controller
                 'stok' => $request->stok
             ]);            
         }
+        
         //redirect to index
         return redirect()->route('buku-admin.index');
     }
