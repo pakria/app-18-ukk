@@ -37,6 +37,7 @@
                                         <th scope="">Alamat</th>
                                         <th scope="">Telepon</th>
                                         <th scope="">email</th>
+                                        <th scope="">Role</th>
                                         <th scope="">Aksi</th>
                                     </tr>
                                 </thead>
@@ -47,6 +48,7 @@
                                         <td>{{ $item->alamat }}</td>
                                         <td>{{ $item->telepon }}</td>
                                         <td>{{ $item->email }}</td>
+                                        <td>{{ $item->role }}</td>
                                         <td>
                                             <form action="{{ route('user.destroy', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')"
                                             method="POST">

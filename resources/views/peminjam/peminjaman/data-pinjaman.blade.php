@@ -51,8 +51,7 @@
                                         <td>{{ $item->jumlah }}</td>
                                         <td><img src="{{ asset('storage/buku/'.$item->buku->cover) }}" alt="" style="width: 100px; height:100px"></td>
                                         <td>{{ $item->status }}</td>
-                                        <td>                                     
-                                            <a href="{{ route('peminjaman.show', $item->id) }}" class="btn btn-sm btn-dark">Detail</a>                                         
+                                        <td>                                                                         
                                             <form action="{{ route('peminjaman.kembali', $item->id) }}" onsubmit="return confirm('Apakah Anda Yakin ?')" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn btn-sm btn-danger">Kembalikan</button>

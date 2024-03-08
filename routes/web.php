@@ -50,26 +50,6 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::resource('products', ProductController::class);
-
-
-
-//Route::resource('products', [ProductController::class])name->();
-
-//Route::resource('/dashboard',\App\Http\BukuController::class);
-
-
- //Route::middleware([AuthController::class])->group( function () {
-  // Route::get('register', 'register')->name('register');
-   // Route::post('register','registerSave')->name('register.save');
-//});
-
-    //Route::get('login', 'login')->name('login');
-    //Route::post('login','loginAction')->name('login.action');
-
-
-
-
 
 Auth::routes();
 
@@ -79,7 +59,6 @@ Route::prefix('admin')->middleware('auth', 'auth.admin')->group(function () {
     Route::get('/', [BerandaAdminController::class, 'index'])->name('admin.beranda');
     Route::resource('user', UserController::class);
     Route::resource('buku-admin', BukuController::class);
-    Route::resource('kategori', KategoriController::class);
     Route::resource('peminjaman', AdminPeminjamanController::class);
 });
 

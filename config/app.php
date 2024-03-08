@@ -11,7 +11,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
-    | framework needs to place the application's name in a notification or
+    | framework needs to place the application's name in a notification or ma
     | any other location as required by the application or its packages.
     |
     */
@@ -168,8 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        \Maatwebsite\Excel\ExcelServiceProvider::class,
-
+       // Maatwebsite\Excel\ExcelServiceProvider::class,
+      // Barryvdh\DomPDF\ServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -185,6 +185,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+       // 'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+      // 'PDF' => Barryvdh\DomPDF\Facade::class,
+           
     ])->toArray(),
-
 ];

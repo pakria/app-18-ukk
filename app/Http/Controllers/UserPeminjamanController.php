@@ -34,7 +34,7 @@ class UserPeminjamanController extends Controller
         $pinjam->save();
 
         $buku = $pinjam->buku;
-        $buku->stok++;
+        $buku->stok += $pinjam->jumlah;
         $buku->save();
 
         return redirect()->route('data-peminjaman.index');
@@ -81,7 +81,8 @@ class UserPeminjamanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $model = User::findOrFail($id);
+        return view('peminjam.peminjaman.peminjaman_show', compact('model'));
     }
 
     /**
